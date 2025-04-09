@@ -25,8 +25,13 @@ class Carrinho:
         return soma
 
     def exibir_itens(self):
-        for idx, (produto, quantidade) in enumerate(self.itens, start=1):
-            print(f"{idx}. {produto.nome} - Quantidade: {quantidade} - Preço Unitário: R$ {produto.preco}")
+        for idx, (produto, quantidade) in enumerate(self.itens):
+            print(f"{idx + 1}. {produto.nome} - Quantidade: {quantidade} - Preço Unitário: R$ {produto.preco}")
 
     def esvaziar(self):
         self.itens = []
+
+    def verifica_se_vazio(self):
+        if not self.itens:
+            return True
+        return False

@@ -12,8 +12,8 @@ class Loja:
     def remover_produto(self, produto):
         if produto in self.produtos:
             self.produtos.remove(produto)
-        else:
-            print("Produto não encontrado na loja.")
+            return
+        print("Produto não encontrado na loja.")
 
     def pagamento_dinheiro (self, total, pagamento):
         total = total * 0.9
@@ -21,11 +21,11 @@ class Loja:
         if pagamento < total:
             print("Pagamento insuficiente...")
             return False
-        else:
-            troco = pagamento - total
-            print(f"Troco R$: {troco}")
-            print("Pagamento realizado com sucesso!")
-            return True
+        
+        troco = pagamento - total
+        print(f"Troco R$: {troco}")
+        print("Pagamento realizado com sucesso!")
+        return True
 
     def pagamento_pix (self, total):
         qr = pyqrcode.create(str(total))
